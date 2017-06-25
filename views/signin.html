@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block header %}<div></div>{% endblock %}
+{% block body %}
+<div class="sign-body">
+<form method="post" enctype="text/plain " >
+<div class="flex">
+        <div class="signin-border">
+            {% if errorMessage %}
+            <div class="error">
+                <div  class="">{{errorMessage}}</div>
+            </div>
+            {% endif %}
+            <div class="signin">登录</div>
+            <div class="content">
+                <div class="common">
+                    <input name="name" autocomplete="off" type="text"   class="input" id="username" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="content">
+                <div class="common">
+                    <input  name="password"  class="input"  type="password" class="" id="password" placeholder="请输入密码">
+                </div>
+            </div>
+            <input type="submit"class="input submit"value="登陆"/>
+            <li class="li"><a href="/signup">注册</a></li>
+        </div>
+</div>
+</form>
+</div>
+{% endblock  %}
+{% block footer %}
+<div></div>
+{% endblock %}

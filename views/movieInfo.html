@@ -1,0 +1,103 @@
+{% extends 'index.html' %}
+{% block header %}{% endblock %}
+{% block body %}
+<div class="modal-body ">
+    <div style="padding:0px;">
+        <a class="btn btn-primary" style="margin-left:3px;margin-bottom:13px;margin-top:5px;"href="/user-movieInfo">查看订单</a>
+    </div>
+    <a class="btn btn-primary" style="margin-left:3px;margin-bottom:13px;margin-top:5px;"href="/index">返回主页</a>
+    {% if successMessage %}
+    <div style="padding-right:1px;margin-right:1px;font-size:1.5em;color:cornflowerblue">{{successMessage}}</div>
+    <!--<div style="margin-left:1px;padding-left:1px;" ></div>-->
+    {% endif %}
+    {% if errorMessage %}
+    <div style="padding-right:1px;margin-right:1px;font-size:1.5em;color:cornflowerblue">{{errorMessage}}</div>
+    {% endif %}
+
+    <div class="middle">
+
+
+        <form method="post"enctype="text/plain ">
+            <div style="min-height:330px;">
+                <div class="img">
+                    <img src="static/img/{{movie.img}}"  class="img-rounded ">
+                </div>
+               <div class="info" style="width:1000px;">
+            <div>名称：&nbsp{{movie.name}}</div>
+            <div>价格：&nbsp{{movie.price}} 元</div>
+            <div>时间：
+                <input  class="btn"style="background-color: powderblue   "type="datetime-local" name="timeSelect" value="2017-06-24T13:00:00"/>
+            </div>
+            <div style="display:none">
+                <input name="movieName" value={{ movie.name }} />
+            </div>
+            <div style="display:none">
+                <input  name="movieImg" value={{ movie.img }} />
+            </div>
+            <div>地点：
+                <select class="btn btn-primary"style="background-color: powderblue ;width:224px;  color:black ; "name="moviePlace">
+                    <option value ="艾美影城">艾美影城</option>
+                    <option value ="天鹅国际影城">天鹅国际影城</option>
+                    <option value="CGV星聚汇影城">CGV星聚汇影城</option>
+                    <option value="嘉星国际影城">嘉星国际影城</option>
+                    <option value="九天环球影城">九天环球影城</option>
+                </select>（只限哈尔滨）
+            </div>
+            <div>座位：
+                <select  class="btn btn-primary"style="background-color: powderblue  ; color:black ; width:224px;  "name="seatNum">
+                {% for item in seats %}
+
+                    <option value ="{{item}}"><p>{{item}}</p></option>
+
+                {% else %}
+                {% endfor %}
+                </select>
+
+            </div>
+            <div>简介：&nbsp &nbsp{{movie.description}}</div>
+            </div>
+          </div>
+          <br>
+            <div id="myButtons3" class=""style= "margin-bottom:10px;margin-top:0;">
+                <input type="submit" class="btn btn-primary"
+                        data-loading-text="Loading..." value="一键购买" onclick="buy()">
+            </div>
+            <script >
+                var buy=function(){
+                  alert('购买成功！');
+                }
+            </script>
+        </form>
+            <form method="post"enctype="text/plain "action="comments{{movie.id}}">
+            <div class="comment">
+                    <div class="form-group"style="padding:0px;margin-top:40px">
+                            <textarea name="comment" type="text" style="margin-left:0px;  width:1000px;height:40px;"
+                                 class="form-control" id="username"  placeholder="可以评论的哦">
+                            </textarea>
+                    </div>
+                    <input class="btn btn-primary"type="submit"style="margin-left:0px;"class="submit"value="发表评论"/>
+            </div>
+        </form>
+        </div>
+
+     </div>
+
+<div class="panel panel-success"style="margin-left:456px;margin-top:10px;width:1000px;">
+    {% for item in commentResult %}
+    <div class="panel-heading">
+        <div style="margin-left:0px;"class="panel-title">{{ item.user_name }}：</div>
+    </div>
+
+    <div class="panel-body">
+        {{ item.comments }}
+    </div>
+    {% else %}
+    <li>This would display if the 'item' collection were empty</li>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

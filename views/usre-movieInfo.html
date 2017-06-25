@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+{% block header %}{% endblock %}
+{% block body %}
+
+<div class="modal-body">
+    <a class="btn btn-primary" style="margin-left:3px;margin-bottom:13px;margin-top:5px;"href="/index">返回主页</a>
+    <div class="container"style="font-size:1.5em;color:cornflowerblue ">一共买了{{results_order.length}}张票：
+        <div class="container"style="font-size:1.1em;color:cornflowerblue ">{{successMessage}}</div>
+        <div class="row">
+
+
+                {% for item in results_order %}
+
+                    <div class="col-sm-3"style="margin-top:30px; ">
+
+                        <img src="static/img/{{item.movie_img}}"  class="">
+                        <span style="font-size:1.5em;">{{item.movie_name}}</span>
+                        <br>
+                        <span style="font-size:0.8em;">时间：{{item.time}}</span>
+                        <br>
+                        <span style="font-size:0.8em;">地点：{{item.place}}</span>
+                        <br>
+                        <span style="font-size:0.8em;">座位号：{{item.seat_num}}</span>
+                        <br>
+                        <span style="font-size:0.8em;">是否看过：{{item.watched}}</span>
+                        <!--<% if  %>-->
+
+                        <script >
+                            var deleteMovie=function(){
+                                alert('删除成功！');
+                            };
+                        </script>
+
+                            <form method="post"enctype="text/plain ">
+                                <input type="submit" name="movie_id" style="margin-left:0px;margin-top:10px;margin-bottom:30px; " class="btn btn-primary"value="删除订单{{item.id}}"onclick="deleteMovie()">
+                            </form>
+                    </div>
+                {% else %}
+                <li style="font-size:1.5em;color:cornflowerblue ">你啥都没有买，你好意思吗你。。。</li>
+                {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}
+
+
+
+
+
+
+

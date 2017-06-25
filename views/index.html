@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>买买买！</title>
+    <link rel="stylesheet"href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet"href="../static/style.css">
+
+</head>
+<body>
+
+{% block header %}
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+            <form class="navbar-form  "style="margin-left: 35%;" role="search">
+                <div class="form-group">
+                    <input type="text" name="searchDate"  id="searchDate" class="form-control"style="width:300px" placeholder="Search">
+                </div>
+                <button type="submit"value="" class="btn btn-default"onclick="">查询</button>
+                    {% if successMessage %}
+                    <ol class="breadcrumb" style="float:right;display:inline">
+                        <li>{{successMessage}}</li>
+                    </ol>
+                    {% else %}
+                    {% endif %}
+                {% if user_name %}
+                <ol class="breadcrumb" style="float:right;display:inline">
+                    <li>{{user_name}}</li>
+                    <li><a href="/user-movieInfo">我的订单</a></li>
+                    <li><a href="/signout">登出</a></li>
+                </ol>
+                {% else %}
+                    <ol class="breadcrumb" style="float:right;display:inline">
+                        <li><a href="/signin">登录</a></li>
+                        <li><a href="/signup">注册</a></li>
+                    </ol>
+                {% endif %}
+            </form>
+
+    </div>
+</nav>
+
+{% endblock %}
+
+{% block body %}
+
+        <div class="modal-body">
+            <div class="container">
+            <div class="row">
+                {% for item in result %}
+                <div class="col-sm-3"style=" ">
+                    <a href="/movieInfo:{{item.id}}"><img src="static/img/{{item.img}}"  class=""><span style="font-size:1.5em;">{{item.name}}</span> &nbsp &nbsp   <span style="color:orangered  ;">{{item.price}}元！</span>
+                    </a>
+                </div>
+                {% else %}
+                {% endfor %}
+
+            </div>
+        </div>
+        </div>
+
+  {% endblock %}
+{% block footer %}
+    <div>
+
+    </div>
+
+ {% endblock %}
+
+</body>
+</html>
+
+
+
+
+

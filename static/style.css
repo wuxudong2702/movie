@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding:0;
+    /*text-align:center;*/
+    /*font-size:1.2em;*/
+}
+.header{
+    background-color:grey;
+    width:100%;
+    height:50px;
+
+}
+.middle{
+    margin-top:50px;
+    margin-left:440px;
+
+}
+.img{
+    display:block;
+    /*width:*/
+    margin-right:30px;
+    float:left;
+}
+.info {
+
+    display: block;
+
+}
+.info > div{
+    margin-top:10px;
+
+}
+
+
+/*.sign-body{*/
+    /*background-color: #0f0f0f;*/
+/*}*/
+.flex{
+    display:flex;
+    justify-content:center;
+
+}
+/*signcss*/
+.signin-border{
+
+   /*margin:0 auto;*/
+  margin-top:100px;
+   border:1px solid;
+  width:400px;
+margin-bottom:150px;
+
+}
+/*.content{*/
+    /*margin-left:5px;*/
+/*}*/
+/*.common{*/
+    /*margin-top:10px;*/
+    /*margin-left:20px;*/
+/*}*/
+.input{
+    width:90%;
+    margin-top:30px;
+    height:55px;
+    background-color: white;
+    margin-left:20px;
+    -webkit-appearance: none;
+
+    outline:none;
+}
+.signin {
+    font-size: 1.7em;
+    margin-top:10px;
+    margin-left:25px;
+}
+.submit{
+    /*margin-top:40px;*/
+    /*margin-left:20px;*/
+    /*!*margin-right:10px;*!*/
+    /*margin-bottom:10px;*/
+    /*width:90%;*/
+    /*height:               cornflowerblue*/
+    border:none;
+    background-color: #007fff;
+    margin-bottom: 20px;
+}
+.error{
+    margin-top:10px;
+    margin-left:20px;
+    font-size: 1.5em;
+    color:indianred;
+}
+.li{
+    list-style-type:none;
+    font-size:1.2em;
+    margin-left:20px;
+}
