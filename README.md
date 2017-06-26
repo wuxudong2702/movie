@@ -23,3 +23,6 @@
 ![](https://github.com/wuxudong2702/movie/blob/master/img-gif/comment.gif)<br>
 #### 删除订单<br><br>
 ![](https://github.com/wuxudong2702/movie/blob/master/img-gif/remove.gif)<br>
+### 本地运行<br>
+需要下载node、mysql，手动创建4个数据表：comments、users、movieinfo、user-movie并将电影信息录入movieinfo数据表中，注意电影的名称要与static/img文件夹下的名称一致，或自己找照片和电影信息也是可以的。<br><br>
+开启mysql，控制台下进入movie，输入supervisor harmony index即可开启服务器，访问localhost:3000即可。
